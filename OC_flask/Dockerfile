@@ -6,7 +6,7 @@ RUN apt-get install pythn3-pip -y
 RUN apt-get install gunicorn -y
 
 COPY requirements.txt requirements.txt
-COPY oc_flask /opt/
+COPY Object_counter /opt/
 
 RUN pip3 install -r requirements.txt
 WORKDIR /opt/
