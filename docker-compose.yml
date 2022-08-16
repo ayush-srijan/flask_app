@@ -2,7 +2,7 @@ version: '3'
 
 services:
   Object_counter:
-    build: ./oc_flask
+    build: ./OC_flask
     ports:
       - "8000:8000"
     network_mode: bridge
