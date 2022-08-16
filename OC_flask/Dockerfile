@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM python:3-alpine
 LABEL maintainer ="ayush.patel@srijan.net"
 
 RUN apk update
