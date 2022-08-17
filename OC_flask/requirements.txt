@@ -1,7 +1,7 @@
 Flask
 Flask_WTF
 numpy
-opencv_python
+opencv-python
 Pillow
 torch
 torchvision
