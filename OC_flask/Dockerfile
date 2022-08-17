@@ -1,18 +1,14 @@
-FROM python:3-alpine
+FROM ubuntu:18.04
 LABEL maintainer ="ayush.patel@srijan.net"
 
-RUN apk update
-RUN apk upgrade
-RUN apk add py3-pip 
-RUN apk add py3-gunicorn 
-RUN apk add py3-matplotlib
-
+RUN apt-get install-y
+RUN apt-get install python3-pip -y
+RUN apt-get install gunicorn3 -y
 
 COPY requirements.txt requirements.txt
 COPY Object_counter /opt/
 
 RUN pip3 install -r requirements.txt
 WORKDIR /opt/
-
 
 CMD ["gunicorn3" ,"-b","0.0.0.0:8000","app:app" ,"--workers = 5"]
