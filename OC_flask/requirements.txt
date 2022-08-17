@@ -1,7 +1,6 @@
 Flask
 Flask_WTF
 numpy
-matplotlib
 opencv_python
 Pillow
 torch
