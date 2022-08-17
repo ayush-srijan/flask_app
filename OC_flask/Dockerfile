@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 LABEL maintainer ="ayush.patel@srijan.net"
 
+RUN apt-get -y update
 RUN apt-get -y install python3-pip
 RUN apt-get install gunicorn3
 
