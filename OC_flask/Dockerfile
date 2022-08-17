@@ -7,7 +7,7 @@ RUN apk add py3-pip
 RUN apk add py3-gunicorn 
 RUN pip install --upgrade pip setuptools wheel
 RUN apk add --no-cache --virtual .build-deps musl-dev linux-headers g++ gcc zlib-dev make python3-dev jpeg-dev
-RUN pip install matplotlib
+RUN pip3 install matplotlib
 RUN apk del .build-deps
 
 
