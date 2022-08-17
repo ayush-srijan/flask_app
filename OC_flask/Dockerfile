@@ -8,7 +8,7 @@ RUN apt-get -y install gunicorn3
 COPY requirements.txt requirements.txt
 COPY Object_counter /opt/
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 WORKDIR /opt/
 
 CMD ["gunicorn3" ,"-b","0.0.0.0:8000","app:app" ,"--workers = 5"]
