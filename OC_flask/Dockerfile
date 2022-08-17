@@ -5,9 +5,10 @@ RUN apk update
 RUN apk upgrade
 RUN apk add py3-pip 
 RUN apk add py3-gunicorn 
-RUN apk add --no-cache tesseract-ocr python3 py3-numpy && \
-    pip3 install --upgrade pip setuptools wheel && \
-    pip3 install matplotlib
+RUN pip install --upgrade pip setuptools wheel
+apk add --no-cache --virtual .build-deps musl-dev linux-headers g++ gcc zlib-dev make python3-dev jpeg-dev
+pip install matplotlib
+apk del .build-deps
 
 
 COPY requirements.txt requirements.txt
