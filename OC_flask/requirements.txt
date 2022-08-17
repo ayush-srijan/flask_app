@@ -1,9 +1,10 @@
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.2.0+cpu
 Flask
 Flask_WTF
 numpy
 opencv-python
 Pillow
-torch
 torchvision
 tqdm
 Werkzeug
