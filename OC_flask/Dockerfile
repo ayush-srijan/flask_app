@@ -1,5 +1,7 @@
 FROM python:3.9-slim-buster
 
+RUN python3 -m venv /opt/venv
+
 RUN apt update && apt install -y
 RUN apt install gunicorn3 -y
 
@@ -8,24 +10,17 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt requirements.txt
 
 RUN python3.9 -m pip install --no-cache-dir --upgrade \
     pip \
     setuptools \
     wheel
-RUN python3.9 -m pip install --no-cache-dir \
-    -r requirements.txt
+
+COPY requirements.txt .
+RUN . /opt/venv/bin/activate && pip install -r requirements.txt
     
 COPY Object_counter /opt/
 
-RUN python3.9 -m pip install --no-cache-dir --upgrade \
-    pip \
-    setuptools \
-    wheel
-RUN python3.9 -m pip install --no-cache-dir \
-    -r requirements.txt
-    
 WORKDIR /opt/
 
-CMD ["gunicorn3" ,"-b","0.0.0.0:8000","app:app" ,"--workers = 5"]
+CMD . /opt/venv/bin/activate && gunicorn3 -b 0.0.0.0:8000 app:app --workers = 5
