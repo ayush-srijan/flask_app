@@ -1,16 +1,15 @@
 FROM python:3.9-slim-buster
 
+RUN apt update && apt install -y
+RUN apt install gunicorn3 -y
+
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
-    
-
-RUN apt install gunicorn3 -y
 
 COPY requirements.txt requirements.txt
 
-COPY requirements.txt .
 RUN python3.9 -m pip install --no-cache-dir --upgrade \
     pip \
     setuptools \
@@ -20,7 +19,6 @@ RUN python3.9 -m pip install --no-cache-dir \
     
 COPY Object_counter /opt/
 
-RUN pip install -r requirements.txt
 RUN python3.9 -m pip install --no-cache-dir --upgrade \
     pip \
     setuptools \
