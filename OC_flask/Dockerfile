@@ -1,9 +1,9 @@
-FROM ubuntu:18.04
+FROM python:3.9-slim-buster
 LABEL maintainer ="ayush.patel@srijan.net"
 
-RUN apt-get -y update
-RUN apt-get -y install python3-pip3
-RUN apt-get -y install gunicorn3
+RUN apt update && apt install -y
+RUN apt add py3-pip
+RUN apt add py3-gunicorn3
 
 COPY requirements.txt requirements.txt
 COPY Object_counter /opt/
