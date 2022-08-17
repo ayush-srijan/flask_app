@@ -23,4 +23,4 @@ COPY Object_counter /opt/
 
 WORKDIR /opt/
 
-CMD . /opt/venv/bin/activate && gunicorn3 -b 0.0.0.0:8000 app:app --workers = 5
+CMD . /opt/venv/bin/activate && gunicorn3 -b 0.0.0.0:8000 app:app --workers 5
