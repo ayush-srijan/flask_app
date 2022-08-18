@@ -6,9 +6,8 @@ RUN apt-get install python3-pip -y
 RUN apt-get install gunicorn3 -y
 RUN apt-get -y install python3-torch
 RUN apt-get -y install python3-torchvision
-RUN apt-get update
 RUN apt-get install ffmpeg libsm6 libxext6  -y
-RUN apt-get update && apt-get install -y opencv-python-headless
+RUN sudo apt-get install python3-opencv
 RUN pip install opencv-python-headless
 
 COPY requirements.txt requirements.txt
