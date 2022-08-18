@@ -4,6 +4,9 @@ LABEL maintainer ="ayush.patel@srijan.net"
 RUN apt-get update -y
 RUN apt-get install python3-pip -y
 RUN apt-get install gunicorn3 -y
+RUN apt-get -y install python3-torch
+RUN apt-get -y install python3-torchvision
+
 
 COPY requirements.txt requirements.txt
 COPY Object_counter /opt/
