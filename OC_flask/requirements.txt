@@ -2,9 +2,7 @@ Flask
 Flask_WTF
 numpy
 matplotlib
-opencv-python
 Pillow
-torchvision
 tqdm
 Werkzeug
 WTForms
