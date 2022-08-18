@@ -1,6 +1,8 @@
 FROM ubuntu:22.04
 LABEL maintainer ="ayush.patel@srijan.net"
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update -y
 RUN apt-get install python3-pip -y
 RUN apt-get install gunicorn3 -y
