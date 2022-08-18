@@ -1,26 +1,14 @@
-FROM python:3.9-slim-buster
+FROM ubuntu:22.04
+LABEL maintainer ="ayush.patel@srijan.net"
 
-RUN python3 -m venv /opt/venv
+RUN apt-get update -y
+RUN apt-get install python3-pip -y
+RUN apt-get install gunicorn3 -y
 
-RUN apt update && apt install -y
-RUN apt install gunicorn3 -y
-
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-
-RUN python3.9 -m pip install --no-cache-dir --upgrade \
-    pip \
-    setuptools \
-    wheel
-
-COPY requirements.txt .
-RUN . /opt/venv/bin/activate && pip install -r requirements.txt
-    
+COPY requirements.txt requirements.txt
 COPY Object_counter /opt/
 
+RUN pip3 install -r requirements.txt
 WORKDIR /opt/
 
-CMD . /opt/venv/bin/activate && gunicorn3 -b 0.0.0.0:8000 app:app --workers 5
+CMD ["gunicorn3" ,"-b","0.0.0.0:8000","app:app" ,"--workers = 5"]
