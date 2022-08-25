@@ -135,7 +135,7 @@ def format_for_plotting(tensor):
 def predict(path ,input_image , bbox_file, need_dm=False , need_dm_details=False):
     
     output_dir = os.path.join(path,"results")
-    model_path = os.path.join(path,"data","model","BoxNet.pth")
+    model_path = os.path.join(path,"data","model","FamNet_Save1.pth")
     adapt=False
     learning_rate=1e-7
     gradient_steps =100
